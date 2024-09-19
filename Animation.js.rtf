@@ -1,0 +1,42 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2818
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 Times-Roman;}
+{\colortbl;\red255\green255\blue255;\red4\green8\blue15;\red255\green255\blue255;}
+{\*\expandedcolortbl;;\cssrgb\c1176\c2745\c7059;\cssrgb\c100000\c100000\c100000;}
+\margl1440\margr1440\vieww12720\viewh7240\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs32 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 function changePage() \{   \
+  window.location.href="https://example.com/next-page.html";\
+  \
+\}  \
+\
+\
+var canvas = document.getElementById('can');\
+ctx=canvas.getContext('2d');\
+\
+function animate()\{\
+	ctx.clearRect(0,0,500,200);\
+	\
+	var angle = Math.random()*10;\
+    ctx.save();\
+    ctx.translate(canvas.width / 2, canvas.height / 2);\
+    ctx.rotate(angle * Math.PI/180);\
+\
+var gradient=ctx.createLinearGradient(-300,-20,250 ,100)\
+gradient.addColorStop(0,"#e5e9f0")\
+gradient.addColorStop(.8,'#343a40')\
+gradient.addColorStop(1,'black')\
+\
+ctx.fillStyle = gradient;\
+ ctx.fillRect ( -150,-90, 300,180 );\
+\
+    ctx.restore();\
+\}\
+\
+setInterval(function() \{ animate(); \},10);\
+\
+\'a0function openInNewTab() \{\
+   var win=window.open("https://example.com/next-page.html","_blank","width=500,height=500");\
+\}}

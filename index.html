@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2566">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px Times; color: #04080f; -webkit-text-stroke: #04080f; background-color: #ffffff}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px Times; color: #04080f; -webkit-text-stroke: #04080f; background-color: #ffffff; min-height: 19.0px}
+    span.s1 {font-kerning: none}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
+<p class="p1"><span class="s1">&lt;html lang="en"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;head&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;title&gt;Vinyl Record Collection&lt;/title&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;link rel='stylesheet' href='style.css'&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
+<p class="p1"><span class="s1">&lt;body&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;div class='vinyl-container'&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;marquee behavior='scroll'&gt;&lt;p style="font-size:40px"&gt;Vivnyl Vinyl Records&lt;/p&gt;&lt;/marquee&gt;<span class="Apple-converted-space"> </span></span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class = 'vinyl-cards'&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;!-- add vinyl cards here --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">   </span>&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"&gt;&lt;/script&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;script&gt;</span></p>
+<p class="p1"><span class="s1">$(document).ready(function(){</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span></span></p>
+<p class="p1"><span class="s1">$.getJSON("data.json", function(data){</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>$.each(data, function(i,v){</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>$('.vinyl-cards').append(`</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class='card'&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;img src='${v.image}' alt="${v.title}" /&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h2&gt;${v.title}&lt;/h2&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;/div&gt;`)</span></p>
+<p class="p1"><span class="s1">});<span class="Apple-converted-space">   </span></span></p>
+<p class="p1"><span class="s1">});</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">});</span></p>
+<p class="p1"><span class="s1">&lt;/script&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;div id="button"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;button onclick = "changePage()"&gt;Next Page&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;p&gt;&amp;copy; Vivnyl Records, All Rights Reserved.&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;script src='https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.13.0/dist/tf.min.js'&gt;&lt;/script&gt;<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1">&lt;script src="animation.js"&gt;&lt;/script&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
+<p class="p1"><span class="s1">&lt;canvas id = 'can' width=500 height = 200&gt;&lt;/canvas&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;div class = 'vinyl-bottom'&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;p style="font-size:20px"&gt;Vivnyl Records is a collection of vinyl records owned by Viv. The collection contains over 1500 albums.&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/div&gt;<span class="Apple-converted-space"> </span></span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
+<p class="p1"><span class="s1">&lt;footer class='footer'&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Contact Us:&lt;/h2&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;ul id="links"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;&lt;a href="#"&gt;viv@vivnyl.com&lt;/a&gt;&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;/ul&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;h3&gt;Vinyl Records For Sale: &lt;button onclick = "openInNewTab()"&gt;Click Here!&lt;/button&gt; &lt;/h3&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;script src='https://cdn.jsdelivr.net/npm/js-cookie@2.2.1/src/js.cookie.min.js'&gt;&lt;/script&gt;'</span></p>
+<p class="p1"><span class="s1"> body {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>background-image: linear-gradient(to bottom right, #343a40,#e5e9f0);</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">.card{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>position: relative;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>width: 200px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>height: 250px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>margin-left :20px;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p1"><span class="s1">.vinyl-cards{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>display:flex;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">img {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>object-fit:cover</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">footer ul li a {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">   </span>padding-right:15px ;</span></p>
+<p class="p1"><span class="s1">font-size :16px ;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">background-color:#343a40<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1">color:white<span class="Apple-converted-space"> </span></span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p1"><span class="s1">#links {</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">list-style-type:none</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;/style&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"> function changePage() {<span class="Apple-converted-space">   </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>window.location.href="https://example.com/next-page.html";</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span></span></p>
+<p class="p1"><span class="s1">} <span class="Apple-converted-space"> </span></span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">var canvas = document.getElementById('can');</span></p>
+<p class="p1"><span class="s1">ctx=canvas.getContext('2d');</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">function animate(){</span></p>
+<p class="p1"><span class="s1"><span class="Apple-tab-span">	</span>ctx.clearRect(0,0,500,200);</span></p>
+<p class="p2"><span class="s1"><span class="Apple-tab-span">	</span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-tab-span">	</span>var angle = Math.random()*10;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>ctx.save();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>ctx.translate(canvas.width / 2, canvas.height / 2);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>ctx.rotate(angle * Math.PI/180);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">var gradient=ctx.createLinearGradient(-300,-20,250 ,100)</span></p>
+<p class="p1"><span class="s1">gradient.addColorStop(0,"#e5e9f0")</span></p>
+<p class="p1"><span class="s1">gradient.addColorStop(.8,'#343a40')</span></p>
+<p class="p1"><span class="s1">gradient.addColorStop(1,'black')</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">ctx.fillStyle = gradient;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space"> </span>ctx.fillRect ( -150,-90, 300,180 );</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>ctx.restore();</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">setInterval(function() { animate(); },10);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;/script&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"> function openInNewTab() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">   </span>var win=window.open("https://example.com/next-page.html","_blank","width=500,height=500");</span></p>
+<p class="p1"><span class="s1">}</span></p>
+</body>
+</html>
